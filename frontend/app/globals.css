@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  color-scheme: light;
+}
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Empêcher Tailwind de casser le Markdown et améliorer le design */
+.prose h1 {
+  @apply text-4xl font-bold text-gray-900 border-b-2 border-gray-300 pb-2 mb-4;
+}
+
+.prose h2 {
+  @apply text-3xl font-semibold text-gray-800 mt-6 border-b border-gray-300 pb-1;
+}
+
+.prose h3 {
+  @apply text-2xl font-semibold text-gray-700 mt-4;
+}
+
+.prose p {
+  @apply text-gray-800 leading-7 text-lg;
+}
+
+.prose ul {
+  @apply list-disc pl-6 space-y-1 text-gray-800;
+}
+
+.prose ol {
+  @apply list-decimal pl-6 space-y-1 text-gray-800;
+}
+
+.prose strong {
+  @apply font-bold text-blue-600;
+}
+
+.prose a {
+  @apply text-blue-500 underline hover:text-blue-700 transition;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-blue-500 pl-4 italic text-gray-700;
+}
+
+.prose code {
+  @apply bg-gray-200 text-red-600 px-2 py-1 rounded-md font-mono;
+}
+
+.prose pre {
+  @apply bg-gray-900 text-white p-4 rounded-md overflow-x-auto;
+}
+
+.prose table {
+  @apply border-collapse border border-gray-300 w-full text-gray-800;
+}
+
+.prose th, .prose td {
+  @apply border border-gray-300 px-4 py-2;
+}
+

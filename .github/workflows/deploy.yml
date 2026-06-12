@@ -82,6 +82,13 @@ jobs:
           echo "=== Test ssh-keyscan ==="
           ssh-keyscan -H "$EC2_HOST"
 
+      - name: Debug fichiers disponibles
+        run: |
+          echo "=== Racine du repo ==="
+          ls -la
+          echo "=== Dossier nginx ==="
+          ls -la nginx/ || echo "Pas de dossier nginx"
+
       - name: Run Ansible Playbook
         run: |
           ansible-playbook -i inventory.ini ansible/playbook.yml

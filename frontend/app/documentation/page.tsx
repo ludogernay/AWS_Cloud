@@ -5,8 +5,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Image from 'next/image';
 
-// const apiUrl = process.env.NEXT_PUBLIC_API_URL || '/api';
-const apiUrl = 'http://localhost:5000/api';
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || '/api';
+// const apiUrl = 'http://localhost:5000/api';
 
 
 export default function Documentation() {

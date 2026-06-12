@@ -69,14 +69,14 @@
 
     - name: Copier docker-compose.yml
       copy:
-        src: ./docker-compose.yml
+        src: ../docker-compose.yml
         dest: /home/ubuntu/app/docker-compose.yml
         owner: ubuntu
         group: ubuntu
 
     - name: Copier nginx.conf
       copy:
-        src: ./nginx/nginx.conf
+        src: ../nginx/nginx.conf
         dest: /home/ubuntu/app/nginx/nginx.conf
         owner: ubuntu
         group: ubuntu

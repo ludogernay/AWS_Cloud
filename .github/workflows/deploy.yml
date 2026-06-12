@@ -71,9 +71,16 @@ jobs:
           EC2_HOST: ${{ secrets.EC2_HOST }}
         run: |
           mkdir -p ~/.ssh
+          echo "=== Vérif longueur clé ==="
+          echo "$EC2_SSH_KEY" | wc -c
+          echo "=== Début de la clé ==="
+          echo "$EC2_SSH_KEY" | head -1
+          echo "=== Fin de la clé ==="
+          echo "$EC2_SSH_KEY" | tail -1
           echo "$EC2_SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
+          echo "=== Test ssh-keyscan ==="
+          ssh-keyscan -H "$EC2_HOST"
 
       - name: Run Ansible Playbook
         run: |

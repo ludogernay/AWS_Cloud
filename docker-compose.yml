@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: ghcr.io/${{ env.GITHUB_REPOSITORY_OWNER }}/hotel-frontend:latest
+    image: ghcr.io/ludogernay/hotel-frontend:latest
     container_name: hotel-frontend
     environment:
       - NODE_ENV=production
@@ -17,7 +17,7 @@ services:
       start_period: 40s
 
   backend:
-    image: ghcr.io/${{ env.GITHUB_REPOSITORY_OWNER }}/hotel-backend:latest
+    image: ghcr.io/ludogernay/hotel-backend:latest
     container_name: hotel-backend
     environment:
       - NODE_ENV=production

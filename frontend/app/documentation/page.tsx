@@ -66,10 +66,6 @@ export default function Documentation() {
                 <h1 className="text-4xl font-extrabold text-gray-900  flex items-center gap-2">
                     📖 Documentation
                 </h1>
-                <button className="bg-gray-300  text-gray-700  px-4 py-2 rounded-lg cursor-not-allowed">
-                    Connexion (Admin)
-                    test worflow
-                </button>
             </header>
 
             <div className="w-full max-w-5xl bg-white shadow-md p-6 mt-4 rounded-lg">

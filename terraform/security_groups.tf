@@ -9,7 +9,7 @@ resource "aws_security_group" "app" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["109.0.31.88/32"]
   }
 
   # HTTPS
@@ -18,7 +18,7 @@ resource "aws_security_group" "app" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["109.0.31.88/32"]
   }
 
   # SSH - restreint à ton IP uniquement

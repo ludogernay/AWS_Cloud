@@ -6,7 +6,6 @@ import remarkGfm from "remark-gfm";
 import Image from 'next/image';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL || '/api';
-console.log(apiUrl);
 // const apiUrl = 'http://localhost:5000/api';
 
 

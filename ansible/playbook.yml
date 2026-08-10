@@ -6,6 +6,7 @@
   vars:
     github_actor: "{{ lookup('env', 'GITHUB_ACTOR') }}"
     github_token: "{{ lookup('env', 'GITHUB_TOKEN') }}"
+    grafana_admin_password: "{{ lookup('env', 'GRAFANA_ADMIN_PASSWORD') }}"
 
   tasks:
     # ---- Installation Docker ----
@@ -66,6 +67,28 @@
         state: directory
         owner: ubuntu
         group: ubuntu
+
+    - name: Créer le dossier monitoring
+      file:
+        path: /home/ubuntu/app/monitoring
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+
+    - name: Copier la config monitoring (Prometheus + Grafana)
+      copy:
+        src: "../monitoring/"
+        dest: /home/ubuntu/app/monitoring/
+        owner: ubuntu
+        group: ubuntu
+
+    - name: Déployer le fichier .env (mot de passe Grafana)
+      copy:
+        content: "GRAFANA_ADMIN_PASSWORD={{ grafana_admin_password }}\n"
+        dest: /home/ubuntu/app/.env
+        owner: ubuntu
+        group: ubuntu
+        mode: '0600'
 
     - name: Copier docker-compose.yml
       copy:

@@ -30,6 +30,15 @@ resource "aws_security_group" "app" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # Grafana - accès restreint à ton IP
+  ingress {
+    description = "Grafana"
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = [0.0.0.0/0]
+  }
+
   # Tout le trafic sortant autorisé
   egress {
     from_port   = 0

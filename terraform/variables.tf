@@ -7,13 +7,13 @@ variable "aws_region" {
 variable "ami_id" {
   description = "AMI Ubuntu 26.04 LTS (eu-west-3)"
   type        = string
-  default     = "ami-0be40a46b4111e7f5" # Ubuntu 26.04 Paris - à vérifier/mettre à jour
+  default     = "ami-0be40a46b4111e7f5"
 }
 
 variable "instance_type" {
   description = "Type d'instance EC2"
   type        = string
-  default     = "t2.micro" # Free tier
+  default     = "t3.micro" # Free tier
 }
 
 variable "key_name" {
@@ -25,13 +25,13 @@ variable "key_name" {
 variable "my_ip" {
   description = "Ton IP publique pour accès SSH (format: x.x.x.x)"
   type        = string
-  default     = "109.0.31.88"
+  default     = "0.0.0.0"
 }
 
 variable "project_name" {
   description = "Nom du projet (utilisé pour les tags)"
   type        = string
-  default     = "mon-app"
+  default     = "doc-it"
 }
 
 variable "environment" {

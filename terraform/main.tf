@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "mon-projet-tfstate"
+    bucket         = "mon-projet-tfstate-406715719220"
     key            = "hotel/terraform.tfstate"
     region         = "eu-west-3"
     dynamodb_table = "terraform-locks"

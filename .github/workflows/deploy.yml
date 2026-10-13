@@ -98,6 +98,16 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ansible
+      
+      - name: Ouvrir SSH pour ce runner
+        run: |
+          RUNNER_IP="109.0.31.88"
+          SG_ID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=mon-app-sg \
+            --query 'SecurityGroups[0].GroupId' --output text)
+          echo "RUNNER_IP=$RUNNER_IP" >> $GITHUB_ENV
+          echo "SG_ID=$SG_ID" >> $GITHUB_ENV
+          aws ec2 authorize-security-group-ingress --group-id "$SG_ID" \
+            --protocol tcp --port 22 --cidr "$RUNNER_IP/32"
 
       - name: Setup SSH Key
         env:
@@ -115,6 +125,12 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           echo "=== Test ssh-keyscan ==="
           ssh-keyscan -H "$EC2_HOST"
+      
+      - name: Refermer SSH
+        if: always()
+        run: |
+          aws ec2 revoke-security-group-ingress --group-id "$SG_ID" \
+            --protocol tcp --port 22 --cidr "$RUNNER_IP/32"
 
       - name: Debug fichiers disponibles
         run: |

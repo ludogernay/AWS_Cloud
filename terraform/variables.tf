@@ -25,7 +25,7 @@ variable "key_name" {
 variable "my_ip" {
   description = "Ton IP publique pour accès SSH (format: x.x.x.x)"
   type        = string
-  default     = "0.0.0.0"
+  default     = "109.0.31.88"
 }
 
 variable "project_name" {

@@ -61,12 +61,19 @@
         append: yes
 
     # ---- Déploiement de l'app ----
-    - name: Créer le dossier app
+    # - name: Créer le dossier app
+    #   file:
+    #     path: /home/ubuntu/app/nginx
+    #     state: directory
+    #     owner: ubuntu
+    #     group: ubuntu
+
+    - name: Créer le dossier caddy
       file:
-        path: /home/ubuntu/app/nginx
+        path: /home/ubuntu/app/caddy
         state: directory
         owner: ubuntu
-        group: ubuntu
+        group: ubuntu    
 
     - name: Créer le dossier monitoring
       file:
@@ -97,10 +104,17 @@
         owner: ubuntu
         group: ubuntu
 
-    - name: Copier nginx.conf
+    # - name: Copier nginx.conf
+    #   copy:
+    #     src: ../nginx/nginx.conf
+    #     dest: /home/ubuntu/app/nginx/nginx.conf
+    #     owner: ubuntu
+    #     group: ubuntu
+
+    - name: Copier le Caddyfile
       copy:
-        src: ../nginx/nginx.conf
-        dest: /home/ubuntu/app/nginx/nginx.conf
+        src: ../caddy/Caddyfile
+        dest: /home/ubuntu/app/caddy/Caddyfile
         owner: ubuntu
         group: ubuntu
 
@@ -109,8 +123,12 @@
         echo "{{ github_token }}" | docker login ghcr.io -u {{ github_actor }} --password-stdin
       become_user: ubuntu
 
+    - name: Supprimer l'ancien conteneur nginx
+      shell: docker rm -f hotel-nginx || true
+      become_user: ubuntu
+
     - name: Pull et démarrer les containers
-      shell: docker compose up -d --pull always
+      shell: docker compose up -d --pull always --remove-orphans
       args:
         chdir: /home/ubuntu/app
       become_user: ubuntu

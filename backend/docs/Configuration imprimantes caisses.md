@@ -27,14 +27,14 @@ Configurer une nouvelle imprimante de caisse Epson en lui assignant manuellement
 4. Cliquer sur la connexion **Ethernet** utilisée.
 5. Cliquer sur **Propriétés**.
 6. Sélectionner **Protocole Internet version 4 (TCP/IPv4)**.
-7. Attribuer une **IP manuelle** compatible avec celle de l’imprimante (ex. : `192.168.192.100`).
+7. Attribuer une **IP manuelle** compatible avec celle de l’imprimante (ex. : `192.168.190.100`).
 8. Valider avec **OK** > **OK** > **Fermer**.
 
 ---
 
 ### 3️⃣ **Connexion à l’interface web de l’imprimante**
 1. Ouvrir un navigateur web.
-2. Entrer l’adresse : `http://192.168.192.168`
+2. Entrer l’adresse : `http://192.168.190.100`
 
 #### 🔐 Connexion administrateur :
 - **ID** : `epson`

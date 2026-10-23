@@ -64,7 +64,7 @@ export default function Documentation() {
         <div className="min-h-screen bg-gray-50  flex flex-col items-center p-6">
             <header className="w-full max-w-5xl bg-white  shadow-lg p-6 rounded-lg flex justify-between items-center">
                 <h1 className="text-4xl font-extrabold text-gray-900  flex items-center gap-2">
-                    📖 Documentation
+                    📖 Documentations
                 </h1>
             </header>
 
